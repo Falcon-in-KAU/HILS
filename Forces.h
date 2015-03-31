@@ -1,5 +1,5 @@
 /***********************************************************************************************
-					6 Degree of Aircraft's Equation of motion simulation
+					Force and Moment Calculation for Fixed-Wing Aircraft Model
 								Programmed by Yongrae Kim
 										
 										  belong to
@@ -8,7 +8,6 @@
 									E-mail : s_vettel@naver.com
 											 kimyr911125@gmail.com
 
-					class Force : computing forces and moments effects to the aircraft
 ************************************************************************************************/
 
 #include <math.h>
