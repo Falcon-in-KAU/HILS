@@ -17,6 +17,13 @@ BOOL				InitInstance(HINSTANCE, int);
 LRESULT CALLBACK	WndProc(HWND, UINT, WPARAM, LPARAM);
 INT_PTR CALLBACK	About(HWND, UINT, WPARAM, LPARAM);
 
+/******************************************************************************
+	@Brief : Variables for Simulation Thread Functions 
+*******************************************************************************/
+DWORD HILS_AIRCRAFT_SIMULATION_THREAD;
+HANDLE HILS_AIRCRAFT_SIMULATION_HANDLE;
+unsigned long _stdcall HILS_Aircraft_Simulation(void *);
+
 int APIENTRY _tWinMain(HINSTANCE hInstance,
                      HINSTANCE hPrevInstance,
                      LPTSTR    lpCmdLine,
@@ -41,6 +48,16 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 	}
 
 	hAccelTable = LoadAccelerators(hInstance, MAKEINTRESOURCE(IDC_HILS));
+
+	/*********************************************************************
+		@brief : Thread for Aircraft Simulation 
+	**********************************************************************/
+	HILS_AIRCRAFT_SIMULATION_HANDLE = CreateThread(NULL,0,HILS_Aircraft_Simulation,NULL,0,&HILS_AIRCRAFT_SIMULATION_THREAD);
+
+	/*********************************************************************
+		@brief : Thread for Actuator Encoder
+	**********************************************************************/
+
 
 	// 기본 메시지 루프입니다.
 	while (GetMessage(&msg, NULL, 0, 0))
@@ -187,4 +204,42 @@ INT_PTR CALLBACK About(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)
 		break;
 	}
 	return (INT_PTR)FALSE;
+}
+
+
+/****************************************************************
+	@Brief : Thread for Aircraft Simulation
+*****************************************************************/
+unsigned long _stdcall HILS_Aircraft_Simulation(void *)
+{
+	PARAMETER HILS_Param;
+	FORCE HILS_Force;
+	SYSTEM HILS_System;
+
+	double Control[4] = {0,};		//Control -> Control Surface Value. This will be replaced.
+	double Parameter[40] = {0,};
+	HILS_Param.Para(&Parameter[0]);
+	HILS_Force.Para(&Parameter[0]);
+	HILS_System.Parameter(&Parameter[0]);
+	HILS_System.Init(0,0,0,11.1,0,0,0,0,-100);
+
+	DWORD Tick_cnt = 0;
+	DWORD Delay_Time = 0;
+	while(1)
+	{
+		Tick_cnt = clock();
+		HILS_Force.Compute_forces(HILS_System.q,HILS_System.Vrel,HILS_System.wbe,&Control[0]);
+		HILS_System.System(HILS_Force.out);
+		if(Delay_Time = clock()-Tick_cnt<LOOPTIME)
+		{
+			Sleep(LOOPTIME-Delay_Time);
+		}
+		else
+		{
+			Sleep(0);
+		}
+
+	}
+
+	return 0;
 }

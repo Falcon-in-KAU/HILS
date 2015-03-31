@@ -5,8 +5,8 @@
 										  belong to
 					KB's Lab & Aircraft Manufacturing Society & Research
 
-									E-mail : comingdgr@gmail.com
-											 comingdgr@nate.com
+									E-mail : s_vettel@naver.com
+											 kimyr911125@gmail.com
 
 
 

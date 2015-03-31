@@ -13,6 +13,7 @@
 #include <math.h>
 
 #define SAMPLING	0.01
+#define LOOPTIME	10		//10ms = 0.01seconds
 
 class SYSTEM
 {

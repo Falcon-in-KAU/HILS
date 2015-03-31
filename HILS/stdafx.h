@@ -13,6 +13,7 @@
 #include <tchar.h>
 #include <string.h>
 #include <stdio.h>
+#include <time.h>
 
 /*****************************************************************
 	@Brief : Header file for Hardware-In-the-Loop Simulation

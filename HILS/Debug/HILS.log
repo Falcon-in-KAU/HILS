@@ -1,4 +1,4 @@
-﻿빌드 시작: 2015-03-31 오후 10:56:16
+﻿빌드 시작: 2015-04-01 오전 2:10:34
      1>2 노드의 "C:\Users\s_vettel_desk\Desktop\대학원강의\항공우주임베디드\HILS\HILS\HILS\HILS.vcxproj" 프로젝트(build 대상)입니다.
      1>InitializeBuildStatus:
          "AlwaysCreate"이(가) 지정되었기 때문에 "Debug\HILS.unsuccessfulbuild"을(를) 만들고 있습니다.
@@ -10,8 +10,6 @@
          HILS_System.cpp
          HILS_Serial.cpp
          HILS_Parameter.cpp
-     1>c:\users\s_vettel_desk\desktop\대학원강의\항공우주임베디드\hils\hils\hils\hils_parameter.cpp(26): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(304) : 'scanf' 선언을 참조하십시오.
          HILS_Forces.cpp
          HILS_Actuator.cpp
          코드를 생성하고 있습니다...
@@ -42,4 +40,4 @@
 
 빌드했습니다.
 
-경과 시간: 00:00:02.02
+경과 시간: 00:00:01.35
