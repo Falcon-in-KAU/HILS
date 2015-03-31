@@ -19,7 +19,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <CharacterSet>MultiByte</CharacterSet>
+    <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -39,8 +39,6 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(SolutionDir)OpenGL;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)OpenGL;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -55,7 +53,6 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>opengl32.lib;glu32.lib;glut32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -80,22 +77,13 @@
     <None Include="small.ico" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="HILS_Actuator.h" />
-    <ClInclude Include="HILS_Forces.h" />
-    <ClInclude Include="HILS_Parameter.h" />
-    <ClInclude Include="HILS_Serial.h" />
-    <ClInclude Include="HILS_System.h" />
+    <ClInclude Include="HILS.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="HILS_main.cpp" />
-    <ClCompile Include="HILS_Actuator.cpp" />
-    <ClCompile Include="HILS_Forces.cpp" />
-    <ClCompile Include="HILS_Parameter.cpp" />
-    <ClCompile Include="HILS_Serial.cpp" />
-    <ClCompile Include="HILS_System.cpp" />
+    <ClCompile Include="HILS.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
