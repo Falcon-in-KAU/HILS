@@ -11,8 +11,8 @@
 ************************************************************************************************/
 
 
-#include "System.h"
-#include <string.h>
+#include "stdafx.h"
+
 //#include "Matrix.h"
 
 //MATRIX matrix;
