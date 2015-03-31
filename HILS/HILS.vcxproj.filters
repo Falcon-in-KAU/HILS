@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="헤더 파일\HILS">
+      <UniqueIdentifier>{3fff24d8-9c4f-4f6c-9af7-f5c5f9c56f68}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\HILS">
+      <UniqueIdentifier>{3ad0b659-4a78-4fd4-b638-2fcfd07243de}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />
@@ -33,15 +39,42 @@
     <ClInclude Include="Resource.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="HILS.h">
-      <Filter>헤더 파일</Filter>
+    <ClInclude Include="HILS_Actuator.h">
+      <Filter>헤더 파일\HILS</Filter>
+    </ClInclude>
+    <ClInclude Include="HILS_Forces.h">
+      <Filter>헤더 파일\HILS</Filter>
+    </ClInclude>
+    <ClInclude Include="HILS_Parameter.h">
+      <Filter>헤더 파일\HILS</Filter>
+    </ClInclude>
+    <ClInclude Include="HILS_Serial.h">
+      <Filter>헤더 파일\HILS</Filter>
+    </ClInclude>
+    <ClInclude Include="HILS_System.h">
+      <Filter>헤더 파일\HILS</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="HILS.cpp">
+    <ClCompile Include="HILS_Actuator.cpp">
+      <Filter>소스 파일\HILS</Filter>
+    </ClCompile>
+    <ClCompile Include="HILS_Forces.cpp">
+      <Filter>소스 파일\HILS</Filter>
+    </ClCompile>
+    <ClCompile Include="HILS_Parameter.cpp">
+      <Filter>소스 파일\HILS</Filter>
+    </ClCompile>
+    <ClCompile Include="HILS_Serial.cpp">
+      <Filter>소스 파일\HILS</Filter>
+    </ClCompile>
+    <ClCompile Include="HILS_System.cpp">
+      <Filter>소스 파일\HILS</Filter>
+    </ClCompile>
+    <ClCompile Include="HILS_main.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
