@@ -1,4 +1,4 @@
-#include "stdafx.h"
+#include "Serial.h"
 
 DWORD SERIAL::ReadComm(unsigned char *pBuff, DWORD nToRead, HANDLE PORT)
 {
