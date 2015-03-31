@@ -1,13 +1,4 @@
-/***********************************************************************************************
-							Discrete Actuator Model
-								Programmed by Yongrae Kim
-										
-										  belong to
-					Flight Control Laboratory, LAB building room 327, Korea Aerospace Univ.
 
-									E-mail : s_vettel@naver.com
-											 kimyr911125@gmail.com
-************************************************************************************************/
 
 class ACTUATOR
 {

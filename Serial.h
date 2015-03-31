@@ -1,5 +1,5 @@
 /***********************************************************************************************
-								Serial Communication Modules
+					6 Degree of Aircraft's Equation of motion simulation
 								Programmed by Yongrae Kim
 										
 										  belong to

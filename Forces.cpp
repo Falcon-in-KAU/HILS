@@ -1,5 +1,5 @@
 /***********************************************************************************************
-					Force and Moment Calculation for Fixed-Wing Aircraft Model
+					6 Degree of Aircraft's Equation of motion simulation
 								Programmed by Yongrae Kim
 										
 										  belong to
