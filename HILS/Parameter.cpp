@@ -10,8 +10,8 @@
 
 ************************************************************************************************/
 
-#include "Parameter.h"
-#include <stdio.h>
+#include "stdafx.h"
+
 void PARAMETER::Para(double *Parameter)
 {
 

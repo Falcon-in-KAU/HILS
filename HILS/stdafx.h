@@ -1,7 +1,4 @@
-// stdafx.h : 자주 사용하지만 자주 변경되지는 않는
-// 표준 시스템 포함 파일 및 프로젝트 관련 포함 파일이
-// 들어 있는 포함 파일입니다.
-//
+
 
 #pragma once
 
@@ -16,6 +13,35 @@
 #include <malloc.h>
 #include <memory.h>
 #include <tchar.h>
+#include <string.h>
 
+/*****************************************************************
+	@Brief : Header file for Hardware-In-the-Loop Simulation
+	@Note  : Only for the fixed wing aircraft
+*****************************************************************/
+#include "Forces.h"
+#include "System.h"
+#include "Actuator.h"
+#include "Parameter.h"
 
+/*****************************************************************
+	@Brief : Header file declaration for serial communication system
+*****************************************************************/
+#include "Serial.h"
+
+/************************************************************************************
+	@Brief : Header files and library filesdeclaration for other functionalities
+*************************************************************************************/
+#include <atlstr.h>		//for Using CString
+#include <mmsystem.h>  // for Using mciSendString() 
+#include <conio.h> 
+#include <math.h>
+#include <time.h>
+#pragma comment (lib, "winmm.lib") //MCI 
 // TODO: 프로그램에 필요한 추가 헤더는 여기에서 참조합니다.
+
+/*****************************************************************
+	@Brief : library file declaration for console windows
+*****************************************************************/
+
+#define PI 3.141592654

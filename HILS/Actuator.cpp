@@ -1,4 +1,4 @@
-#include "Actuator.h"
+#include "stdafx.h"
 #define dt 0.01
 
 /************************************************
