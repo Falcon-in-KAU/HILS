@@ -85,6 +85,11 @@
     <ClInclude Include="HILS_Parameter.h" />
     <ClInclude Include="HILS_Serial.h" />
     <ClInclude Include="HILS_System.h" />
+    <ClInclude Include="MMI_Google_Earth.h" />
+    <ClInclude Include="MMI_Google_Earth_Control.h" />
+    <ClInclude Include="MMI_Google_Earth_Window.h" />
+    <ClInclude Include="MMI_Opengl_HUD.h" />
+    <ClInclude Include="MMI_Opengl_Window.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
@@ -96,6 +101,11 @@
     <ClCompile Include="HILS_Parameter.cpp" />
     <ClCompile Include="HILS_Serial.cpp" />
     <ClCompile Include="HILS_System.cpp" />
+    <ClCompile Include="MMI_Google_Earth.cpp" />
+    <ClCompile Include="MMI_Google_Earth_Control.cpp" />
+    <ClCompile Include="MMI_Google_Earth_Window.cpp" />
+    <ClCompile Include="MMI_Opengl_HUD.cpp" />
+    <ClCompile Include="MMI_Opengl_Window.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>

@@ -38,6 +38,7 @@
 #include <math.h>
 #include <time.h>
 #pragma comment (lib, "winmm.lib") //MCI 
+#include <atlstr.h>						//for using CString
 // TODO: 프로그램에 필요한 추가 헤더는 여기에서 참조합니다.
 
 /*****************************************************************
@@ -50,7 +51,21 @@
 #include "OpenGL\GL.H"
 #include "OpenGL\GLU.H"
 #include "OpenGL\glut.h"
+/*****************************************************************
+	@Brief : Header files for Man-Machine Interface
+*****************************************************************/
+#include "MMI_Opengl_Window.h"
+#include "MMI_Opengl_HUD.h"
+#include "MMI_Google_Earth_Window.h"
+#include "MMI_Google_Earth_Control.h"
+#include "MMI_Google_Earth.h"
+
 
 /****************************************************************
 *****************************************************************/
 #define PI 3.141592654
+#define WINDOW_SIZE_X	600
+#define WINDOW_SIZE_Y	700
+
+#define R2D		57.2957795
+#define D2R		0.0174532925

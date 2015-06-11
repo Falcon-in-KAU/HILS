@@ -19,6 +19,12 @@
     <Filter Include="소스 파일\HILS">
       <UniqueIdentifier>{3ad0b659-4a78-4fd4-b638-2fcfd07243de}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\MMI">
+      <UniqueIdentifier>{079092cd-efc9-4179-9f4d-a70d09fbf7c8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\MMI">
+      <UniqueIdentifier>{8a50263c-d251-4b2d-b4a8-1404ecbf0c9b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />
@@ -54,6 +60,21 @@
     <ClInclude Include="HILS_System.h">
       <Filter>헤더 파일\HILS</Filter>
     </ClInclude>
+    <ClInclude Include="MMI_Google_Earth.h">
+      <Filter>헤더 파일\MMI</Filter>
+    </ClInclude>
+    <ClInclude Include="MMI_Google_Earth_Control.h">
+      <Filter>헤더 파일\MMI</Filter>
+    </ClInclude>
+    <ClInclude Include="MMI_Google_Earth_Window.h">
+      <Filter>헤더 파일\MMI</Filter>
+    </ClInclude>
+    <ClInclude Include="MMI_Opengl_HUD.h">
+      <Filter>헤더 파일\MMI</Filter>
+    </ClInclude>
+    <ClInclude Include="MMI_Opengl_Window.h">
+      <Filter>헤더 파일\MMI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -76,6 +97,21 @@
     </ClCompile>
     <ClCompile Include="HILS_main.cpp">
       <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="MMI_Google_Earth.cpp">
+      <Filter>소스 파일\MMI</Filter>
+    </ClCompile>
+    <ClCompile Include="MMI_Google_Earth_Control.cpp">
+      <Filter>소스 파일\MMI</Filter>
+    </ClCompile>
+    <ClCompile Include="MMI_Google_Earth_Window.cpp">
+      <Filter>소스 파일\MMI</Filter>
+    </ClCompile>
+    <ClCompile Include="MMI_Opengl_HUD.cpp">
+      <Filter>소스 파일\MMI</Filter>
+    </ClCompile>
+    <ClCompile Include="MMI_Opengl_Window.cpp">
+      <Filter>소스 파일\MMI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

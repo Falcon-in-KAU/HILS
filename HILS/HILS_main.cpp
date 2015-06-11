@@ -22,6 +22,13 @@ INT_PTR CALLBACK	About(HWND, UINT, WPARAM, LPARAM);
 *******************************************************************************/
 DWORD HILS_AIRCRAFT_SIMULATION_THREAD;
 HANDLE HILS_AIRCRAFT_SIMULATION_HANDLE;
+
+HWND hWnd;
+MMI_OPENGL_WINDOW MMI_OpenGL_Window;
+MMI_GE_WINDOW MMI_GE_Window;
+PARAMETER HILS_Param;
+FORCE HILS_Force;
+SYSTEM HILS_System;
 unsigned long _stdcall HILS_Aircraft_Simulation(void *);
 
 int APIENTRY _tWinMain(HINSTANCE hInstance,
@@ -55,9 +62,10 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 	HILS_AIRCRAFT_SIMULATION_HANDLE = CreateThread(NULL,0,HILS_Aircraft_Simulation,NULL,0,&HILS_AIRCRAFT_SIMULATION_THREAD);
 
 	/*********************************************************************
-		@brief : Thread for Actuator Encoder
+		@brief : Windows for Man-Machine Interface
 	**********************************************************************/
-
+	MMI_OpenGL_Window.CreateGLWinodow("MMI_Lib",WINDOW_SIZE_X,WINDOW_SIZE_Y,hWnd);
+	MMI_GE_Window.CreateMapWindow("MMI_GE",WINDOW_SIZE_X+83,WINDOW_SIZE_Y,hWnd);
 
 	// 기본 메시지 루프입니다.
 	while (GetMessage(&msg, NULL, 0, 0))
@@ -120,12 +128,12 @@ ATOM MyRegisterClass(HINSTANCE hInstance)
 //
 BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 {
-   HWND hWnd;
+  
 
    hInst = hInstance; // 인스턴스 핸들을 전역 변수에 저장합니다.
 
    hWnd = CreateWindow(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
-      CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, NULL, NULL, hInstance, NULL);
+      CW_USEDEFAULT, 0, 1300, 800, NULL, NULL, hInstance, NULL);
 
    if (!hWnd)
    {
@@ -136,6 +144,39 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    UpdateWindow(hWnd);
 
    return TRUE;
+}
+
+
+namespace PK
+{
+	void KillProcess(const char *EXEName)
+	{
+		HANDLE snapshot_handle = ::CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
+		if (INVALID_HANDLE_VALUE != snapshot_handle)
+		{
+			PROCESSENTRY32 pe;
+			if(Process32First(snapshot_handle, &pe))
+			{
+				do
+				{
+					//TRACE("KillProcess() PID = %04u, FileName = %s\n", pe.th32ProcessID, pe.szExeFile);
+					if (!_tcscmp(pe.szExeFile, (LPCTSTR)EXEName))
+					{
+						HANDLE process_handle = OpenProcess(PROCESS_TERMINATE, FALSE, pe.th32ProcessID);
+						if (INVALID_HANDLE_VALUE != process_handle)
+						{
+							//TRACE("프로세스 중지!\n");
+							TerminateProcess(process_handle, 0);
+							CloseHandle(process_handle);
+						}
+					}
+				}
+				while(Process32Next(snapshot_handle, &pe));
+			}
+			CloseHandle(snapshot_handle);
+			snapshot_handle = INVALID_HANDLE_VALUE;
+		} 
+	}
 }
 
 //
@@ -178,6 +219,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 		EndPaint(hWnd, &ps);
 		break;
 	case WM_DESTROY:
+		PK::KillProcess("googleearth.exe");
 		PostQuitMessage(0);
 		break;
 	default:
@@ -212,16 +254,14 @@ INT_PTR CALLBACK About(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)
 *****************************************************************/
 unsigned long _stdcall HILS_Aircraft_Simulation(void *)
 {
-	PARAMETER HILS_Param;
-	FORCE HILS_Force;
-	SYSTEM HILS_System;
+	
 
 	double Control[4] = {0,};		//Control -> Control Surface Value. This will be replaced.
 	double Parameter[40] = {0,};
 	HILS_Param.Para(&Parameter[0]);
 	HILS_Force.Para(&Parameter[0]);
 	HILS_System.Parameter(&Parameter[0]);
-	HILS_System.Init(0,0,0,11.1,0,0,0,0,-100);
+	HILS_System.Init(0,0,0,11.1,0,0,0,0,-1000);
 
 	DWORD Tick_cnt = 0;
 	DWORD Delay_Time = 0;

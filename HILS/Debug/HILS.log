@@ -1,18 +1,11 @@
-﻿빌드 시작: 2015-04-01 오전 2:10:34
+﻿빌드 시작: 2015-06-11 오후 12:17:07
      1>2 노드의 "C:\Users\s_vettel_desk\Desktop\대학원강의\항공우주임베디드\HILS\HILS\HILS\HILS.vcxproj" 프로젝트(build 대상)입니다.
      1>InitializeBuildStatus:
          "AlwaysCreate"이(가) 지정되었기 때문에 "Debug\HILS.unsuccessfulbuild"을(를) 만들고 있습니다.
        ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yc"StdAfx.h" /Fp"Debug\HILS.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt stdafx.cpp
-         stdafx.cpp
-         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Debug\HILS.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt HILS_Actuator.cpp HILS_Forces.cpp HILS_Parameter.cpp HILS_Serial.cpp HILS_System.cpp HILS_main.cpp
-         HILS_main.cpp
-         HILS_System.cpp
-         HILS_Serial.cpp
-         HILS_Parameter.cpp
-         HILS_Forces.cpp
-         HILS_Actuator.cpp
-         코드를 생성하고 있습니다...
+         모든 출력이 최신 상태입니다.
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Debug\HILS.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt MMI_Opengl_Window.cpp
+         MMI_Opengl_Window.cpp
        ResourceCompile:
          모든 출력이 최신 상태입니다.
        ManifestResourceCompile:
@@ -26,6 +19,11 @@
          Debug\HILS_Parameter.obj
          Debug\HILS_Serial.obj
          Debug\HILS_System.obj
+         Debug\MMI_Google_Earth.obj
+         Debug\MMI_Google_Earth_Control.obj
+         Debug\MMI_Google_Earth_Window.obj
+         Debug\MMI_Opengl_HUD.obj
+         Debug\MMI_Opengl_Window.obj
          Debug\stdafx.obj
        Manifest:
          C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"Debug\HILS.exe.embed.manifest" /manifest Debug\HILS.exe.intermediate.manifest
@@ -40,4 +38,4 @@
 
 빌드했습니다.
 
-경과 시간: 00:00:01.35
+경과 시간: 00:00:00.46
