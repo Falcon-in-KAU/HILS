@@ -12,11 +12,12 @@
 #include <stdio.h>
 #include <math.h>
 
-#define SAMPLING	0.01
-#define LOOPTIME	10		//10ms = 0.01seconds
-
+#define SAMPLING	0.02
+#define LOOPTIME	20		//10ms = 0.01seconds
+#define R_EARTH	6370217.6
 class SYSTEM
 {
+
 	private:
 		//forces and moment
 		double F_at[3], M_at[3];

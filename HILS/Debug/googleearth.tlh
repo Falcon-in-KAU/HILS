@@ -1,9 +1,9 @@
-﻿// Created by Microsoft (R) C/C++ Compiler Version 10.00.40219.01 (916ffe49).
+﻿// Created by Microsoft (R) C/C++ Compiler Version 10.00.30319.01 (f3db030f).
 //
-// c:\users\s_vettel_desk\desktop\대학원강의\항공우주임베디드\hils\hils\hils\debug\googleearth.tlh
+// c:\users\administrator\desktop\항공우주임베디드\hils\hils\hils\debug\googleearth.tlh
 //
 // C++ source equivalent of Win32 type library C:\Program Files (x86)\Google\Google Earth Pro\googleearth.exe
-// compiler-generated file created 06/11/15 at 12:05:14 - DO NOT EDIT!
+// compiler-generated file created 06/22/15 at 14:16:31 - DO NOT EDIT!
 
 #pragma once
 #pragma pack(push, 8)
@@ -1198,7 +1198,7 @@ extern "C" const GUID __declspec(selectany) IID_ISearchControllerGE =
 // Wrapper method implementations
 //
 
-#include "c:\users\s_vettel_desk\desktop\대학원강의\항공우주임베디드\hils\hils\hils\debug\googleearth.tli"
+#include "c:\users\administrator\desktop\항공우주임베디드\hils\hils\hils\debug\googleearth.tli"
 
 } // namespace EARTHLib
 

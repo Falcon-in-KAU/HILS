@@ -163,7 +163,7 @@ CString MMI_KML::Generate_NetworkLink()
 				strKML += strKML_Temp;
 				strKML_Temp.Format("%s","\t\t\t<refreshMode>onInterval</refreshMode>\n");
 				strKML += strKML_Temp;
-				strKML_Temp.Format("%s","\t\t\t<refreshInterval>0</refreshInterval>\n");
+				strKML_Temp.Format("%s","\t\t\t<refreshInterval>0.1</refreshInterval>\n");
 				strKML += strKML_Temp;
 			strKML_Temp.Format("%s","\t\t</Link>\n");
 			strKML +=strKML_Temp;
@@ -266,7 +266,7 @@ CString MMI_KML::Generate_KML_Database(float *Traj_N, float *Traj_E, float *Traj
 	//printf("%s",strKML);
 	return strKML;
 }
-CString MMI_KML::Generate_Waypoint(double *Longitude, double *Latitude, double *Altitude, int Mission_Time, int Waypt_num)
+CString MMI_KML::Generate_Waypoint(double Longitude, double Latitude, double Altitude, int Mission_Time, int Waypt_num)
 {
 	CString strKML;
 	CString strKML_Temp;
@@ -307,26 +307,25 @@ CString MMI_KML::Generate_Waypoint(double *Longitude, double *Latitude, double *
 		
 	}
 
-	for(int i=0;i<Waypt_num;i++)
-	{
+	
 		strKML_Temp.Format("<Placemark>\n");
 		strKML += strKML_Temp;
 			strKML_Temp.Format("\t<name></name>\n");
 			strKML += strKML_Temp;
-			strKML_Temp.Format("\t<description>Waypoint%d : %.6f %.6f %.1f %d</description>\n",i+1,Latitude[i],Longitude[i],Altitude[i],Mission_Time);
+			strKML_Temp.Format("\t<description>Waypoint%d : %.6f %.6f %.1f %d</description>\n",1,Latitude,Longitude,Altitude,Mission_Time);
 			strKML += strKML_Temp;
-			strKML_Temp.Format("\t<styleUrl>#Waypoint%d</styleUrl>\n",i+1);
+			strKML_Temp.Format("\t<styleUrl>#Waypoint%d</styleUrl>\n",1);
 			strKML += strKML_Temp;
 			strKML_Temp.Format("\t<Point>\n\t\t<coordinates>\n");
 			strKML += strKML_Temp;
-			strKML_Temp.Format("\t\t%lf,%lf,%.1f\n",Longitude[i],Latitude[i],Altitude[i]);
+			strKML_Temp.Format("\t\t%lf,%lf,%.1f\n",Longitude,Latitude,Altitude);
 			strKML += strKML_Temp;
 			strKML_Temp.Format("\t</coordinates>\n\t</Point>\n");
 			strKML += strKML_Temp;
 		strKML_Temp.Format("</Placemark>\n");
 		strKML += strKML_Temp;
 
-	}
+
 	strKML_Temp.Format("<Placemark>\n");
 	strKML += strKML_Temp;
 		strKML_Temp.Format("\t<name>Trajectory Command</name>\n");
@@ -343,11 +342,10 @@ CString MMI_KML::Generate_Waypoint(double *Longitude, double *Latitude, double *
 			strKML += strKML_Temp;
 			strKML_Temp.Format("\t\t<coordinates>\n");
 			strKML += strKML_Temp;
-				for(int i=0;i<Waypt_num;i++)
-				{
-					strKML_Temp.Format("\t\t\t%lf,%lf,%lf\n",Longitude[i],Latitude[i],Altitude[i]);
+
+					strKML_Temp.Format("\t\t\t%lf,%lf,%lf\n",Longitude,Latitude,Altitude);
 					strKML += strKML_Temp;
-				}
+				
 			strKML_Temp.Format("\t\t</coordinates>\n");
 			strKML += strKML_Temp;
 		strKML_Temp.Format("\t</LineString>\n");

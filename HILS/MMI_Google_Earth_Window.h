@@ -4,6 +4,9 @@
 #include "MMI_Google_Earth_Control.h"
 LRESULT CALLBACK MMI_GE_WINDOW_WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 
+#define LOAD_GE	1010
+static HINSTANCE LOAD_GE_Instance;
+static HWND LOAD_GE_hWnd;
 class MMI_GE_WINDOW : public MMI_GE, public MMI_GE_CONTROL
 {
 

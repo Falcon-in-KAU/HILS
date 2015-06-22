@@ -80,6 +80,7 @@
     <None Include="small.ico" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="guicon.h" />
     <ClInclude Include="HILS_Actuator.h" />
     <ClInclude Include="HILS_Forces.h" />
     <ClInclude Include="HILS_Parameter.h" />
@@ -95,6 +96,7 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="guicon.cpp" />
     <ClCompile Include="HILS_main.cpp" />
     <ClCompile Include="HILS_Actuator.cpp" />
     <ClCompile Include="HILS_Forces.cpp" />

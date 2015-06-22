@@ -30,7 +30,7 @@ protected:
 	void drawGPSStatus(float x, float y, float ScaleX, float ScaleY);
 	void drawFCCStatus(float x, float y, float ScaleX, float ScaleY);
 	//void drawSpeedLadder(float x, float y, float scale, int n);  // (n = only even)
-protected:
+public:
 	struct HUD_DATA
 	{
 		float alpha;

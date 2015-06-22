@@ -66,7 +66,7 @@ public:
 	CString Generate_End();
 	CString Generate_NetworkLink();
 	CString Generate_KML_Database(float *Traj_N, float *Traj_E, float *Traj_D, int sizeofarray);
-	CString Generate_Waypoint(double *Longitude, double *Latitude, double *Altitude, int Mission_Time, int Waypt_num);
+	CString Generate_Waypoint(double Longitude, double Latitude, double Altitude, int Mission_Time, int Waypt_num);
 	CString Generate_Aircraft(float phi, float theta, float psi, float pN, float pE, float Alt);
 	CString Delete_KML_Data();
 };

@@ -59,7 +59,7 @@
 #include "MMI_Google_Earth_Window.h"
 #include "MMI_Google_Earth_Control.h"
 #include "MMI_Google_Earth.h"
-
+#include "guicon.h"
 
 /****************************************************************
 *****************************************************************/

@@ -343,7 +343,7 @@ void MMI_OPENGL_HUD::drawSpeedLadder(float x, float y, float ScaleX, float Scale
 	}
 	glPopMatrix();
 	glEnable(GL_SCISSOR_TEST);
-	glScissor(0,WINDOW_SIZE_Y/2*y,WINDOW_SIZE_X,WINDOW_SIZE_Y/2.8);
+	glScissor(0,WINDOW_SIZE_Y/2.05*y,WINDOW_SIZE_X,WINDOW_SIZE_Y/2.7);
 	glStencilFunc(GL_NEVER, 0x0, 0x0);
     glStencilOp(GL_INCR, GL_INCR, GL_INCR);
 

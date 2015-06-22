@@ -17,18 +17,12 @@ void PARAMETER::Para(double *Parameter)
 
 
 	int swit=0;
-	printf("\nselect aircraft !!!\n");
-	printf("\t\t0 = pulsar\n");
-	printf("\t\t1 = x-6 3.6m\n");
-	printf("\t\t2 = Capstone \n");
-	printf("\t\t3 = x-6 3.6m-not perfect\n");
-	printf("\n\t\t\tnumber : ");
 	//scanf("%d",&swit);
 	
 	//pulsar
 	if(swit == 0)
 	{
-		printf("\t\t\tpulsar selected!!!\n");
+		printf("\tpulsar selected\n");
 			Parameter[0]			=	2.765;		//mass
 			Parameter[1]			=	0.4604;		//Ixx
 			Parameter[2]			=	0.23283;	//Iyy

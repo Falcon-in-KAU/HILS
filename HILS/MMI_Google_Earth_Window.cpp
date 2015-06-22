@@ -6,6 +6,26 @@ MMI_GE_WINDOW::MMI_GE_WINDOW():MMI_GE(),MMI_GE_CONTROL()
 
 LRESULT CALLBACK MMI_GE_WINDOW_WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
+	HDC GE_CONTROL_Proc;
+	PAINTSTRUCT GE_CONTROL_ps_Proc;
+	RECT rc;
+
+	switch(message)
+	{
+	case WM_CREATE:
+		
+		
+		break;
+	case WM_COMMAND:
+		switch(LOWORD(wParam))
+		{
+		case LOAD_GE:
+
+			break;
+		}
+		break;
+	}
+	
 	return DefWindowProc(hWnd,message,wParam,lParam);
 }
 

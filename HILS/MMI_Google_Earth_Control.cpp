@@ -10,6 +10,7 @@ MMI_GE_CONTROL::~MMI_GE_CONTROL()
 }
 
 extern MMI_GE_WINDOW MMI_GE_Window;
+static char Coord_Char_Temp[50];
 LRESULT CALLBACK MMI_GE_CONTROL_WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
 	HDC GE_CONTROL_Proc;
@@ -20,16 +21,41 @@ LRESULT CALLBACK MMI_GE_CONTROL_WndProc(HWND hWnd, UINT message, WPARAM wParam, 
 	{
 		case WM_CREATE:
 			SET_HOME_POSITION_hWnd = CreateWindow("button","Set Home",WS_CHILD | WS_VISIBLE | BS_PUSHBUTTON,
-			0,0,80,25,hWnd,(HMENU)SET_HOME_POSITION, SET_HOME_POSITION_hInstance,NULL);
+				0,0,80,25,hWnd,(HMENU)SET_HOME_POSITION, SET_HOME_POSITION_hInstance,NULL);
+			ID_EDIT_LATITUDE_hWNd = CreateWindow("edit",NULL,WS_CHILD | WS_VISIBLE | WS_BORDER | ES_AUTOVSCROLL,
+				80 ,0 ,80, 25,hWnd,(HMENU)ID_EDIT_LATITUDE,ID_EDIT_LATITUDE_hInstance,NULL);
+			ID_EDIT_LONGITUDE_hWnd = CreateWindow("edit",NULL,WS_CHILD | WS_VISIBLE | WS_BORDER | ES_AUTOVSCROLL,
+				160 ,0 ,80, 25,hWnd,(HMENU)ID_EDIT_LONGITUDE,ID_EDIT_LONGITUDE_hInstance,NULL);
 			INIT_GE_hWnd = CreateWindow("button","Init GE",WS_CHILD | WS_VISIBLE | BS_PUSHBUTTON,
-			80,0,80,25,hWnd,(HMENU)INIT_GE,INIT_GE_hInstance,NULL);
+				240,0,80,25,hWnd,(HMENU)INIT_GE,INIT_GE_hInstance,NULL);
+			
 			break;
 
 		case WM_COMMAND:
 			switch(LOWORD(wParam))
 			{
 			case SET_HOME_POSITION:
+				{
 				printf("Set Home Position\r\n");
+				MMI_GE_Window.GE_Coord=MMI_GE_Window.GE_Application->GetPointOnTerrainFromScreenCoords(0,0);
+				MMI_GE_Window.Long_Base = MMI_GE_Window.GE_Coord->GetLongitude();
+				MMI_GE_Window.Lat_Base = MMI_GE_Window.GE_Coord->GetLatitude();
+				sprintf(Coord_Char_Temp,"%lf",MMI_GE_Window.Lat_Base);
+				SetWindowText(ID_EDIT_LATITUDE_hWNd, Coord_Char_Temp);
+				sprintf(Coord_Char_Temp,"%lf",MMI_GE_Window.Long_Base);
+				SetWindowText(ID_EDIT_LONGITUDE_hWnd, Coord_Char_Temp);
+				MMI_KML kml;
+				CString KML_Waypt;
+				KML_Waypt=kml.Generate_Waypoint(MMI_GE_Window.Long_Base,MMI_GE_Window.Lat_Base, MMI_GE_Window.GE_Coord->GetAltitude(),0,1);
+				FILE *fp;
+				if(NULL == (fp=fopen("C:\\Program Files (x86)\\Google\\Google Earth Pro\\Waypoint.kml","wt")))
+				{
+					CreateDirectory("C:\\Program Files (x86)\\Google\\Google Earth Pro",NULL);
+					fp = fopen("C:\\Program Files (x86)\\Google\\Google Earth Pro\\Waypoint.kml","wt");
+				}
+				fprintf(fp,"%s",KML_Waypt);
+				fclose(fp);
+				}
 				break;
 			case INIT_GE:
 				printf("Initialize KML file for Google Earth\r\n");

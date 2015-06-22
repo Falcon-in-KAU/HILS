@@ -7,38 +7,12 @@ MMI_OPENGL_WINDOW::MMI_OPENGL_WINDOW():MMI_OPENGL_HUD()
 {
 	this->GUI_Test = 0;
 }
-extern SYSTEM HILS_System;
-extern FORCE HILS_Force;
+
 void MMI_OPENGL_WINDOW::Update()
 {
-	this->GUI_Test = this->GUI_Test + 0.01;
-	if(this->GUI_Test>50)
-	{
-		this->GUI_Test = 0;
-	}
+	
 
-	//MMI_OPENGL_HUD::HUD_Data.alpha = 10*sin(this->GUI_Test);
-	//MMI_OPENGL_HUD::HUD_Data.beta = 10*cos(this->GUI_Test);
 	
-	MMI_OPENGL_HUD::HUD_Data.theta = HILS_System.Euler[1]*R2D;
-	MMI_OPENGL_HUD::HUD_Data.phi = HILS_System.Euler[0]*R2D;
-	MMI_OPENGL_HUD::HUD_Data.TAS = HILS_Force.Vt;
-	MMI_OPENGL_HUD::HUD_Data.GS = sqrt(HILS_System.Vrel[0]*HILS_System.Vrel[0]+HILS_System.Vrel[1]*HILS_System.Vrel[1]+HILS_System.Vrel[2]*HILS_System.Vrel[2]);
-	MMI_OPENGL_HUD::HUD_Data.Altitude = -HILS_System.pNED[2];
-	if(HILS_System.Euler[2]*R2D<0)
-	{
-		MMI_OPENGL_HUD::HUD_Data.Heading = HILS_System.Euler[2]*R2D+360;
-	}
-	else
-	{
-		MMI_OPENGL_HUD::HUD_Data.Heading = HILS_System.Euler[2]*R2D;
-	}
-	
-	MMI_OPENGL_HUD::HUD_Data.RPM = 0;
-	MMI_OPENGL_HUD::HUD_Data.GCS_Bearing = 180*cos(this->GUI_Test)+180;
-	MMI_OPENGL_HUD::HUD_Data.GCS_Deviation = 0;
-	MMI_OPENGL_HUD::HUD_Data.Wind_Bearing = 0;
-	MMI_OPENGL_HUD::HUD_Data.Power_cmd = 0;
 }
 
 GLvoid MMI_OPENGL_WINDOW::ResizeGL(GLsizei w, GLsizei h)
@@ -111,6 +85,8 @@ int MMI_OPENGL_WINDOW::DrawGL()//DATA_POSITION *Position,DATA_ATTITUDES *Attitud
 }
 
 extern MMI_OPENGL_WINDOW MMI_OpenGL_Window;
+static int temp_counter = 0;
+
 LRESULT CALLBACK MMI_OPENGL_WINDOW::OPENGL_WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam, void *CallbackData)
 {
 	int wmId, wmEvent;
@@ -154,7 +130,7 @@ LRESULT CALLBACK MMI_OPENGL_WINDOW::OPENGL_WndProc(HWND hWnd, UINT message, WPAR
 			wglMakeCurrent(NULL,NULL);
 			::ReleaseDC(MMI_OpenGL_Window.OPENGL_hWnd,MMI_OpenGL_Window.OPENGL_hDC);
 			wglDeleteContext(MMI_OpenGL_Window.OPENGL_hRC);
-		
+			
 			break;			
 		}
 	case WM_KEYDOWN:
